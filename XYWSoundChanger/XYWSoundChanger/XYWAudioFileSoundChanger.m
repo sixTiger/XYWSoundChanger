@@ -6,31 +6,32 @@
 //  Copyright © 2017年 xueyognwei. All rights reserved.
 //
 
-#import "ZYSoundChanger.h"
+#import "XYWAudioFileSoundChanger.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "AudioConvert.h"
 #import "XYWSandBox.h"
-@interface ZYSoundChanger()<AudioConvertDelegate>
+@interface XYWAudioFileSoundChanger()<AudioConvertDelegate>
 @property (nonatomic,copy) void(^success)(NSString *videoPath);
 @property (nonatomic,copy) void(^failure)(NSError *error);
 @property (nonatomic,assign)int tempo;
 @property (nonatomic,assign)int pitch;
 @property (nonatomic,assign)int rate;
-@property (nonatomic,assign)BOOL saveToAlbum;//存到相册里
 @property (nonatomic,copy)NSString *videoPath;
 @end
 
-@implementation ZYSoundChanger
-+(ZYSoundChanger *)changer
+@implementation XYWAudioFileSoundChanger
++(XYWAudioFileSoundChanger *)shared
 {
-    static ZYSoundChanger *changer = nil;
+    static XYWAudioFileSoundChanger *changer = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         changer = [[self alloc] init];
     });
     return changer;
 }
+
+/// 变声
 -(void)changeVideo:(NSString *)videoPath withTempo:(int)tempo andPitch:(int)pitch andRate:(int)rate sucess:(void (^)(NSString *))success failure:(void (^)(NSError *))failure
 {
     if (![[NSFileManager defaultManager] fileExistsAtPath:videoPath]) {
@@ -45,24 +46,24 @@
     self.tempo = tempo;
     self.pitch = pitch;
     self.rate = rate;
-    self.saveToAlbum = NO;
     
     [self captureSoundFileOfVideo];
 }
+
 #pragma mark --从视频中抓取音频文件
 /**
  从视频中抓取音频文件
  */
 - (void)captureSoundFileOfVideo
 {
-    // 创建音频文件
-    NSString *documentsDirectoryPath = [XYWSandBox getTmpDirectory];
-    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"ZYSoundFile4Video"];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:filePath withIntermediateDirectories:YES attributes:nil error:nil];
-    }
+    // 捕获音频文件到temp目录下
+    NSString *tempDirectoryPath = NSTemporaryDirectory();
     
-    NSString *tempMusicPath = [NSString stringWithFormat:@"%@/%@.m4a",filePath,[NSString stringWithFormat:@"%@", [self getStringWithTimeNow]]];
+    NSString *tempAudioFileName = [NSString stringWithFormat:@"%@.m4a",[self getStringWithTimeNow]];
+    
+    NSString *tempAudioFilePath = [tempDirectoryPath stringByAppendingPathComponent:tempAudioFileName];
+
+    //取视频asset
     AVURLAsset *asset = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:self.videoPath]];
     NSArray *compatiblePresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:asset];
     if ([compatiblePresets containsObject:AVAssetExportPresetAppleM4A]) {
@@ -70,33 +71,36 @@
         AVAssetExportSession *exportSession = [[AVAssetExportSession alloc]
                                                initWithAsset:asset presetName:AVAssetExportPresetAppleM4A];
         CMTimeRange exportTimeRange = CMTimeRangeMake(kCMTimeZero, asset.duration);
-        NSURL *furl = [NSURL fileURLWithPath:tempMusicPath];
+        
+        NSURL *furl = [NSURL fileURLWithPath:tempAudioFilePath];
         exportSession.outputURL = furl;
         exportSession.outputFileType = AVFileTypeAppleM4A;
         exportSession.timeRange = exportTimeRange; // 截取时间
-        
+        //导出音频
         [exportSession exportAsynchronouslyWithCompletionHandler:^{
             
             switch ([exportSession status]) {
                 case AVAssetExportSessionStatusFailed:
-                    
                     CNLog(@"Export failed: %@", [[exportSession error] localizedDescription]);
+                    self.failure([exportSession error]);
                     break;
-                case AVAssetExportSessionStatusCancelled:
-                    
-                    CNLog(@"Export canceled");
-                    break;
-                default:
-                {
-                    if (![[NSFileManager defaultManager] fileExistsAtPath:tempMusicPath]) {
-                        NSString *errMsg = [NSString stringWithFormat:@"分离音频失败，目标文件不存在！%@",tempMusicPath];
+                case AVAssetExportSessionStatusCompleted:
+                    if ([[NSFileManager defaultManager] fileExistsAtPath:tempAudioFilePath]) {
+                        CNLog(@"分离成功！即将去变声处理..");
+                        [self changeSoundAtPath:tempAudioFilePath];
+                    }
+                    else{
+                        NSString *errMsg = [NSString stringWithFormat:@"分离音频失败，目标文件不存在！%@",tempAudioFilePath];
                         NSError *err = [NSError errorWithDomain:@"fileNotExists" code:404 userInfo:@{@"msg":errMsg}];
                         self.failure(err);
-                        return ;
                     }
-                    CNLog(@"分离成功！即将去变声处理..");
-                    [self changeSoundURL:tempMusicPath];
-                }
+                    break;
+                default:
+                    CNLog(@"Export failed");
+                    NSString *errMsg = [NSString stringWithFormat:@"任务未完成！%@",tempAudioFilePath];
+                    NSError *err = [NSError errorWithDomain:@"Task error" code:404 userInfo:@{@"msg":errMsg}];
+                    self.failure(err);
+                    break;
             }
         }];
     }
@@ -107,7 +111,7 @@
 
  @param filePath 音频文件的路径
  */
--(void)changeSoundURL:(NSString *)filePath
+-(void)changeSoundAtPath:(NSString *)filePath
 {
     AudioConvertConfig dconfig;
     dconfig.sourceAuioPath = [filePath UTF8String];
@@ -120,6 +124,7 @@
     CNLog(@"设置完毕，开始变声处理..");
     [[AudioConvert shareAudioConvert] audioConvertBegin:dconfig withCallBackDelegate:self];
 }
+
 #pragma mark --将原视频和变音后的文件合并成新的视频
 /**
  将原视频和变音后的文件合并成新的视频
@@ -172,19 +177,9 @@
              return;
          }
          self.success(exportPath);
-         if (self.saveToAlbum) {
-             ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-             [library writeVideoAtPathToSavedPhotosAlbum:[NSURL fileURLWithPath:exportPath]
-                                         completionBlock:^(NSURL *assetURL, NSError *error) {
-                                             if (error) {
-                                                 CNLog(@"Save video fail:%@",error);
-                                             } else {
-                                                 CNLog(@"Save video succeed.");
-                                             }
-                                         }];
-         }
      }];
 }
+
 #pragma mark - AudioConvertDelegate
 - (BOOL)audioConvertOnlyDecode
 {
@@ -221,7 +216,7 @@
 }
 
 /**
- * 对音频编码动作的回调(左右app变声回调在这里)
+ * 对音频编码动作的回调
  **/
 - (void)audioConvertEncodeSuccess:(NSString *)audioPath
 {
@@ -246,9 +241,7 @@
  */
 - (NSString *)getStringWithTimeNow
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"yyMMddHHmmss";
-    NSString *nowTimeStr = [formatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:0]];
-    return nowTimeStr;
+    NSDate *nowDate = [NSDate date];
+    return [NSString stringWithFormat:@"%.0f",nowDate.timeIntervalSince1970];
 }
 @end

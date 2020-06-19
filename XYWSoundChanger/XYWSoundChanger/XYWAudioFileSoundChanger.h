@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZYSoundChanger : NSObject
+@interface XYWAudioFileSoundChanger : NSObject
 
-+(ZYSoundChanger *)changer;
+/// 单例
++(XYWAudioFileSoundChanger *)shared;
 
 /**
  把某个视频文件进行变声操作

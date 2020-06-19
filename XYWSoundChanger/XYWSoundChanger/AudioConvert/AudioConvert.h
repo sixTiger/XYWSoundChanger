@@ -101,11 +101,6 @@ typedef NS_ENUM(NSInteger, AudioConvertOutputFormat) {
 #import "AudioSoundTouchOperation.h"
 #import "AudioEncodeOperation.h"
 
-#define  DOCMENT  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
-#define  OUTPUT_DECODEPATH  [NSString stringWithFormat:@"%@/AudioConvert/Decode",DOCMENT]           //解码音频存储位置
-#define  OUTPUT_SOUNDTOUCHPATH  [NSString stringWithFormat:@"%@/AudioConvert/SoundTouch",DOCMENT]   //变声过的音频存储位置
-#define  OUTPUT_ENCODETMPPATH  [NSString stringWithFormat:@"%@/AudioConvert/Encodetmp",DOCMENT]    //编码音频临时存储位置
-#define  OUTPUT_ENCODEPATH  [NSString stringWithFormat:@"%@/AudioConvert/Encode",DOCMENT]           //编码音频存储位置
 
 
 @interface AudioConvert : NSObject

@@ -1,6 +1,6 @@
 # XYWSoundChanger
 对录制或下载的视频进行行变声，可直接运行效果。
-（使用了第三方库SoundTouch）
+（使用的SoundTouch）
 
 ## 功能
 1. 可以对视频文件、音频文件变声并另存新的文件。

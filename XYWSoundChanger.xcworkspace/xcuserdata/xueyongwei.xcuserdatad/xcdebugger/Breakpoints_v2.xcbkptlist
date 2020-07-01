@@ -151,22 +151,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F69876FD-C160-46B7-B7E1-7666C85119E9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "XYWSoundChanger/ViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-onPlayCLick:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "3E3AB8B4-FED1-4B14-8535-1E47BEE3E647"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -174,10 +158,8 @@
             filePath = "XYWSoundChanger/XYWSoundChanger/XYWAudioFileSoundChanger.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-captureSoundFileOfVideo"
-            landmarkType = "7">
+            startingLineNumber = "84"
+            endingLineNumber = "84">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -190,10 +172,8 @@
             filePath = "XYWSoundChanger/XYWSoundChanger/XYWAudioFileSoundChanger.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "-captureSoundFileOfVideo"
-            landmarkType = "7">
+            startingLineNumber = "94"
+            endingLineNumber = "94">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -206,10 +186,8 @@
             filePath = "XYWSoundChanger/XYWSoundChanger/XYWAudioFileSoundChanger.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "-captureSoundFileOfVideo"
-            landmarkType = "7">
+            startingLineNumber = "101"
+            endingLineNumber = "101">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -222,10 +200,8 @@
             filePath = "XYWSoundChanger/XYWSoundChanger/XYWAudioFileSoundChanger.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
-            landmarkName = "-audioConvertEncodeFaild"
-            landmarkType = "7">
+            startingLineNumber = "232"
+            endingLineNumber = "232">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -238,10 +214,8 @@
             filePath = "XYWSoundChanger/XYWSoundChanger/XYWAudioFileSoundChanger.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "-createNewVideoWithSound:"
-            landmarkType = "7">
+            startingLineNumber = "175"
+            endingLineNumber = "175">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

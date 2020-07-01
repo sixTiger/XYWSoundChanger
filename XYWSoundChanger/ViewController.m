@@ -11,7 +11,7 @@
 #import "AudioConvert.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "XYWSandBox.h"
-#import "XYWAudioFileSoundChanger.h"
+#import "XYWVideoFileSoundChanger.h"
 #import "ZYPlayer.h"
 #import "CoreSVP.h"
 
@@ -69,7 +69,7 @@
         self.startDate = tmpStartData;
         [self.waitView startAnimating];
         NSString *sourceVideoPath = [[NSBundle mainBundle] pathForResource:@"0" ofType:@"mp4"];
-        XYWAudioFileSoundChanger *manager = [XYWAudioFileSoundChanger shared];
+        XYWVideoFileSoundChanger *manager = [XYWVideoFileSoundChanger shared];
         [manager changeVideo:sourceVideoPath withTempo:self.tempoChangeNum andPitch:self.pitchSemiTonesNum andRate:self.rateChangeNum sucess:^(NSString *videoPath) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [CoreSVP dismiss];
@@ -108,7 +108,7 @@
         self.startDate = tmpStartData;
         [self.waitView startAnimating];
         NSString *sourceVideoPath = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"mp4"];
-        XYWAudioFileSoundChanger *manager = [XYWAudioFileSoundChanger shared];
+        XYWVideoFileSoundChanger *manager = [XYWVideoFileSoundChanger shared];
         [manager changeVideo:sourceVideoPath withTempo:self.tempoChangeNum andPitch:self.pitchSemiTonesNum andRate:self.rateChangeNum sucess:^(NSString *videoPath) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [CoreSVP dismiss];

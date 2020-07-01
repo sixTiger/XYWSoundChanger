@@ -99,7 +99,7 @@ typedef NS_ENUM(NSInteger, AudioConvertOutputFormat) {
 #import <Foundation/Foundation.h>
 #import "AudioDecodeOperation.h"
 #import "AudioSoundTouchOperation.h"
-#import "AudioEncodeOperation.h"
+//#import "AudioEncodeOperation.h"
 
 
 

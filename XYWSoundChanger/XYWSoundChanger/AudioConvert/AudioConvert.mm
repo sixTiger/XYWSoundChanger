@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 chuliangliang. All rights reserved.
 //
 #import "AudioConvert.h"
-#import "amrFileCodec.h"
+//#import "amrFileCodec.h"
 
 const int SoundTouchSampleRate = 8000; //soundTouch 变声处理的 使用的采样率 目的 速度快
 
@@ -283,21 +283,21 @@ static AudioConvert *audioConvert = nil;
 // TODO: 音频 编码 <AMR>
 //==============================================================================
 - (void)audioConvertDecodeToAmr:(NSString *)sourcePath {
-    NSString *path = sourcePath;
-    
-    NSString *amrSavePath = [self createSavePathWithType:AudioConvertType_Encode];
-    int result = EncodeWAVEFileToAMRFile([path cStringUsingEncoding:NSUTF8StringEncoding], [amrSavePath cStringUsingEncoding:NSUTF8StringEncoding], 1, 16);
-    if (result)
-    {
-        if ([self.delegate respondsToSelector:@selector(audioConvertEncodeSuccess:)]) {
-            [self.delegate  audioConvertEncodeSuccess:amrSavePath];
-        }
-    }else {
-        if ([self.delegate respondsToSelector:@selector(audioConvertEncodeFaild)]) {
-            [self.delegate  audioConvertEncodeFaild];
-        }
-
-    }
+//    NSString *path = sourcePath;
+//    
+//    NSString *amrSavePath = [self createSavePathWithType:AudioConvertType_Encode];
+//    int result = EncodeWAVEFileToAMRFile([path cStringUsingEncoding:NSUTF8StringEncoding], [amrSavePath cStringUsingEncoding:NSUTF8StringEncoding], 1, 16);
+//    if (result)
+//    {
+//        if ([self.delegate respondsToSelector:@selector(audioConvertEncodeSuccess:)]) {
+//            [self.delegate  audioConvertEncodeSuccess:amrSavePath];
+//        }
+//    }else {
+//        if ([self.delegate respondsToSelector:@selector(audioConvertEncodeFaild)]) {
+//            [self.delegate  audioConvertEncodeFaild];
+//        }
+//
+//    }
 }
 
 //==============================================================================
@@ -325,41 +325,41 @@ static AudioConvert *audioConvert = nil;
 //mp3 比较特殊 需要的 音频必须是 通道数必须为 2 否则 导致 音频变速
 - (void)audioConvertDecodoDoubleChannel:(NSString *)audioPath {
     
-    NSString *audioEncodeTmpPath = [self createSavePathWithType:AudioConvertType_TmpEncode];
-    AudioDecodeOperation *audioDecode = [[AudioDecodeOperation alloc] initWithSourcePath:audioPath
-                                                                         audioOutputPath:audioEncodeTmpPath
-                                                                        outputSampleRate:myConfig.outputSampleRate
-                                                                           outputChannel:2
-                                                                          callBackTarget:self
-                                                                            callFunction:@selector(audioconvertDecodoDoubleChannelFinish:)];
-    [[self myAudioQue] cancelAllOperations];
-    [[self myAudioQue] addOperation:audioDecode];
+//    NSString *audioEncodeTmpPath = [self createSavePathWithType:AudioConvertType_TmpEncode];
+//    AudioDecodeOperation *audioDecode = [[AudioDecodeOperation alloc] initWithSourcePath:audioPath
+//                                                                         audioOutputPath:audioEncodeTmpPath
+//                                                                        outputSampleRate:myConfig.outputSampleRate
+//                                                                           outputChannel:2
+//                                                                          callBackTarget:self
+//                                                                            callFunction:@selector(audioconvertDecodoDoubleChannelFinish:)];
+//    [[self myAudioQue] cancelAllOperations];
+//    [[self myAudioQue] addOperation:audioDecode];
 
 
 }
-//MP3 编码前的 处理 回调
-- (void)audioconvertDecodoDoubleChannelFinish:(NSString *)audioPath {
-    if (!audioPath) {
-        //失败 这个失败 是 对 MP3 文件 编码之前的 解码操作 如果失败 回调 编码失败 代理
-        if ([self.delegate respondsToSelector:@selector(audioConvertEncodeFaild)]) {
-            [self.delegate audioConvertEncodeFaild];
-        }
-        return;
-    }
-    //真正的编码正式开始了
-    NSString *audioEncodeOutputPath = [self createSavePathWithType:AudioConvertType_Encode];
-    AudioEncodeOperation *enCode = [[AudioEncodeOperation alloc] initWithTarget:self
-                                                                         action:@selector(audioconvertEncodeFinish:)
-                                                                   audioSrcPath:audioPath
-                                                                audioOutputPath:audioEncodeOutputPath
-                                                                audioSampleRate:(int)myConfig.outputSampleRate
-                                                          outputAudioSampleRate:(int)myConfig.outputSampleRate
-                                                                  audioChannels:2];
-    
-    [[self myAudioQue] cancelAllOperations];
-    [[self myAudioQue] addOperation:enCode];
-
-}
+////MP3 编码前的 处理 回调
+//- (void)audioconvertDecodoDoubleChannelFinish:(NSString *)audioPath {
+//    if (!audioPath) {
+//        //失败 这个失败 是 对 MP3 文件 编码之前的 解码操作 如果失败 回调 编码失败 代理
+//        if ([self.delegate respondsToSelector:@selector(audioConvertEncodeFaild)]) {
+//            [self.delegate audioConvertEncodeFaild];
+//        }
+//        return;
+//    }
+//    //真正的编码正式开始了
+//    NSString *audioEncodeOutputPath = [self createSavePathWithType:AudioConvertType_Encode];
+//    AudioEncodeOperation *enCode = [[AudioEncodeOperation alloc] initWithTarget:self
+//                                                                         action:@selector(audioconvertEncodeFinish:)
+//                                                                   audioSrcPath:audioPath
+//                                                                audioOutputPath:audioEncodeOutputPath
+//                                                                audioSampleRate:(int)myConfig.outputSampleRate
+//                                                          outputAudioSampleRate:(int)myConfig.outputSampleRate
+//                                                                  audioChannels:2];
+//
+//    [[self myAudioQue] cancelAllOperations];
+//    [[self myAudioQue] addOperation:enCode];
+//
+//}
 
 // mp3 、wav 编码 回调
 - (void)audioconvertEncodeFinish:(NSString *)audioPath {

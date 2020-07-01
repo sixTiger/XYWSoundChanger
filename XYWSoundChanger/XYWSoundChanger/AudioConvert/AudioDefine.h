@@ -21,7 +21,7 @@
 
 // 存储位置
 
-#define  DOCMENT  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+#define  DOCMENT  NSTemporaryDirectory()
 #define  OUTPUT_DECODEPATH  [NSString stringWithFormat:@"%@/AudioConvert/Decode",DOCMENT]           //解码音频存储位置
 #define  OUTPUT_SOUNDTOUCHPATH  [NSString stringWithFormat:@"%@/AudioConvert/SoundTouch",DOCMENT]   //变声过的音频存储位置
 #define  OUTPUT_ENCODETMPPATH  [NSString stringWithFormat:@"%@/AudioConvert/Encodetmp",DOCMENT]    //编码音频临时存储位置

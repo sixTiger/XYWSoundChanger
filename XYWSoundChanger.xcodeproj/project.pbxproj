@@ -24,14 +24,9 @@
 		4795E761249C66F000642DAB /* AudioConvert.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4795E733249C66F000642DAB /* AudioConvert.mm */; };
 		4795E762249C66F000642DAB /* AudioSoundTouchOperation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4795E737249C66F000642DAB /* AudioSoundTouchOperation.mm */; };
 		4795E763249C66F000642DAB /* WaveHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4795E739249C66F000642DAB /* WaveHeader.cpp */; };
-		4795E764249C66F000642DAB /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4795E73D249C66F000642DAB /* libmp3lame.a */; };
-		4795E765249C66F000642DAB /* AudioEncodeOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4795E740249C66F000642DAB /* AudioEncodeOperation.m */; };
-		4795E766249C66F000642DAB /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4795E746249C66F000642DAB /* libopencore-amrwb.a */; };
-		4795E767249C66F000642DAB /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4795E747249C66F000642DAB /* libopencore-amrnb.a */; };
-		4795E768249C66F000642DAB /* wav.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4795E74C249C66F000642DAB /* wav.mm */; };
-		4795E769249C66F000642DAB /* amrFileCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4795E74D249C66F000642DAB /* amrFileCodec.mm */; };
-		4795E76B249C66F000642DAB /* XYWAudioFileSoundChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4795E752249C66F000642DAB /* XYWAudioFileSoundChanger.m */; };
+		4795E76B249C66F000642DAB /* XYWVideoFileSoundChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4795E752249C66F000642DAB /* XYWVideoFileSoundChanger.m */; };
 		4795E76E249C6D2800642DAB /* XYWAudioBufferSoundChanger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4795E76D249C6D2800642DAB /* XYWAudioBufferSoundChanger.mm */; };
+		47A1449024AC884A00010C2E /* XYWAudioFileSoundChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A1448F24AC884A00010C2E /* XYWAudioFileSoundChanger.m */; };
 		5BBF5675E38B3266F7F54193 /* libPods-XYWSoundChanger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8982F0D6F6DFE7DFECC36601 /* libPods-XYWSoundChanger.a */; };
 		8504BC3D1E3058C1000C8DAD /* CoreSVP.m in Sources */ = {isa = PBXBuildFile; fileRef = 8504BC321E3058C1000C8DAD /* CoreSVP.m */; };
 		8504BC3E1E3058C1000C8DAD /* SVP.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8504BC341E3058C1000C8DAD /* SVP.bundle */; };
@@ -128,24 +123,12 @@
 		4795E737249C66F000642DAB /* AudioSoundTouchOperation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioSoundTouchOperation.mm; sourceTree = "<group>"; };
 		4795E738249C66F000642DAB /* WaveHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveHeader.h; sourceTree = "<group>"; };
 		4795E739249C66F000642DAB /* WaveHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WaveHeader.cpp; sourceTree = "<group>"; };
-		4795E73D249C66F000642DAB /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
-		4795E73E249C66F000642DAB /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
-		4795E73F249C66F000642DAB /* AudioEncodeOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioEncodeOperation.h; sourceTree = "<group>"; };
-		4795E740249C66F000642DAB /* AudioEncodeOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioEncodeOperation.m; sourceTree = "<group>"; };
-		4795E743249C66F000642DAB /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
-		4795E744249C66F000642DAB /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
-		4795E746249C66F000642DAB /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
-		4795E747249C66F000642DAB /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
-		4795E749249C66F000642DAB /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
-		4795E74A249C66F000642DAB /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
-		4795E74C249C66F000642DAB /* wav.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = wav.mm; sourceTree = "<group>"; };
-		4795E74D249C66F000642DAB /* amrFileCodec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = amrFileCodec.mm; sourceTree = "<group>"; };
-		4795E74E249C66F000642DAB /* amrFileCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amrFileCodec.h; sourceTree = "<group>"; };
-		4795E74F249C66F000642DAB /* wav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wav.h; sourceTree = "<group>"; };
-		4795E751249C66F000642DAB /* XYWAudioFileSoundChanger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYWAudioFileSoundChanger.h; sourceTree = "<group>"; };
-		4795E752249C66F000642DAB /* XYWAudioFileSoundChanger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYWAudioFileSoundChanger.m; sourceTree = "<group>"; };
+		4795E751249C66F000642DAB /* XYWVideoFileSoundChanger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYWVideoFileSoundChanger.h; sourceTree = "<group>"; };
+		4795E752249C66F000642DAB /* XYWVideoFileSoundChanger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYWVideoFileSoundChanger.m; sourceTree = "<group>"; };
 		4795E76C249C6D2800642DAB /* XYWAudioBufferSoundChanger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYWAudioBufferSoundChanger.h; sourceTree = "<group>"; };
 		4795E76D249C6D2800642DAB /* XYWAudioBufferSoundChanger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = XYWAudioBufferSoundChanger.mm; sourceTree = "<group>"; };
+		47A1448E24AC884A00010C2E /* XYWAudioFileSoundChanger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYWAudioFileSoundChanger.h; sourceTree = "<group>"; };
+		47A1448F24AC884A00010C2E /* XYWAudioFileSoundChanger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYWAudioFileSoundChanger.m; sourceTree = "<group>"; };
 		8504BC311E3058C1000C8DAD /* CoreSVP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreSVP.h; sourceTree = "<group>"; };
 		8504BC321E3058C1000C8DAD /* CoreSVP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreSVP.m; sourceTree = "<group>"; };
 		8504BC341E3058C1000C8DAD /* SVP.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVP.bundle; sourceTree = "<group>"; };
@@ -242,11 +225,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8566E60D1E2DBA540048B5A8 /* QuartzCore.framework in Frameworks */,
-				4795E764249C66F000642DAB /* libmp3lame.a in Frameworks */,
 				8569B6E11E2CD2CC00F4972B /* CoreGraphics.framework in Frameworks */,
-				4795E767249C66F000642DAB /* libopencore-amrnb.a in Frameworks */,
 				8569B6DF1E2CD2C700F4972B /* Foundation.framework in Frameworks */,
-				4795E766249C66F000642DAB /* libopencore-amrwb.a in Frameworks */,
 				8569B6DD1E2CD2C200F4972B /* UIKit.framework in Frameworks */,
 				8569B6DB1E2CD2BD00F4972B /* AudioToolbox.framework in Frameworks */,
 				8569B6D91E2CD2B300F4972B /* AVFoundation.framework in Frameworks */,
@@ -270,10 +250,12 @@
 			isa = PBXGroup;
 			children = (
 				4795E710249C66F000642DAB /* AudioConvert */,
-				4795E751249C66F000642DAB /* XYWAudioFileSoundChanger.h */,
-				4795E752249C66F000642DAB /* XYWAudioFileSoundChanger.m */,
+				47A1448E24AC884A00010C2E /* XYWAudioFileSoundChanger.h */,
+				47A1448F24AC884A00010C2E /* XYWAudioFileSoundChanger.m */,
 				4795E76C249C6D2800642DAB /* XYWAudioBufferSoundChanger.h */,
 				4795E76D249C6D2800642DAB /* XYWAudioBufferSoundChanger.mm */,
+				4795E751249C66F000642DAB /* XYWVideoFileSoundChanger.h */,
+				4795E752249C66F000642DAB /* XYWVideoFileSoundChanger.m */,
 			);
 			path = XYWSoundChanger;
 			sourceTree = "<group>";
@@ -287,7 +269,6 @@
 				4795E711249C66F000642DAB /* SoundTouch */,
 				4795E72A249C66F000642DAB /* AudioDecode */,
 				4795E735249C66F000642DAB /* AudioSoundTouch */,
-				4795E73A249C66F000642DAB /* AudioEncode */,
 			);
 			path = AudioConvert;
 			sourceTree = "<group>";
@@ -346,83 +327,6 @@
 				4795E739249C66F000642DAB /* WaveHeader.cpp */,
 			);
 			path = AudioSoundTouch;
-			sourceTree = "<group>";
-		};
-		4795E73A249C66F000642DAB /* AudioEncode */ = {
-			isa = PBXGroup;
-			children = (
-				4795E73B249C66F000642DAB /* AudioToMp3 */,
-				4795E741249C66F000642DAB /* AudioToAmr */,
-			);
-			path = AudioEncode;
-			sourceTree = "<group>";
-		};
-		4795E73B249C66F000642DAB /* AudioToMp3 */ = {
-			isa = PBXGroup;
-			children = (
-				4795E73C249C66F000642DAB /* lame */,
-				4795E73F249C66F000642DAB /* AudioEncodeOperation.h */,
-				4795E740249C66F000642DAB /* AudioEncodeOperation.m */,
-			);
-			path = AudioToMp3;
-			sourceTree = "<group>";
-		};
-		4795E73C249C66F000642DAB /* lame */ = {
-			isa = PBXGroup;
-			children = (
-				4795E73D249C66F000642DAB /* libmp3lame.a */,
-				4795E73E249C66F000642DAB /* lame.h */,
-			);
-			path = lame;
-			sourceTree = "<group>";
-		};
-		4795E741249C66F000642DAB /* AudioToAmr */ = {
-			isa = PBXGroup;
-			children = (
-				4795E742249C66F000642DAB /* opencore-amrwb */,
-				4795E745249C66F000642DAB /* lib */,
-				4795E748249C66F000642DAB /* opencore-amrnb */,
-				4795E74B249C66F000642DAB /* amrwapper */,
-			);
-			path = AudioToAmr;
-			sourceTree = "<group>";
-		};
-		4795E742249C66F000642DAB /* opencore-amrwb */ = {
-			isa = PBXGroup;
-			children = (
-				4795E743249C66F000642DAB /* if_rom.h */,
-				4795E744249C66F000642DAB /* dec_if.h */,
-			);
-			path = "opencore-amrwb";
-			sourceTree = "<group>";
-		};
-		4795E745249C66F000642DAB /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				4795E746249C66F000642DAB /* libopencore-amrwb.a */,
-				4795E747249C66F000642DAB /* libopencore-amrnb.a */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		4795E748249C66F000642DAB /* opencore-amrnb */ = {
-			isa = PBXGroup;
-			children = (
-				4795E749249C66F000642DAB /* interf_dec.h */,
-				4795E74A249C66F000642DAB /* interf_enc.h */,
-			);
-			path = "opencore-amrnb";
-			sourceTree = "<group>";
-		};
-		4795E74B249C66F000642DAB /* amrwapper */ = {
-			isa = PBXGroup;
-			children = (
-				4795E74C249C66F000642DAB /* wav.mm */,
-				4795E74D249C66F000642DAB /* amrFileCodec.mm */,
-				4795E74E249C66F000642DAB /* amrFileCodec.h */,
-				4795E74F249C66F000642DAB /* wav.h */,
-			);
-			path = amrwapper;
 			sourceTree = "<group>";
 		};
 		8504BC301E3058C1000C8DAD /* CoreSVP */ = {
@@ -857,11 +761,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4795E768249C66F000642DAB /* wav.mm in Sources */,
 				4795E75F249C66F000642DAB /* CAXException.cpp in Sources */,
 				8504BCDA1E305FC4000C8DAD /* ZYPlayerControlView.m in Sources */,
 				8504BD131E305FF9000C8DAD /* CALayer+Transition.m in Sources */,
-				4795E76B249C66F000642DAB /* XYWAudioFileSoundChanger.m in Sources */,
+				4795E76B249C66F000642DAB /* XYWVideoFileSoundChanger.m in Sources */,
 				8504BD1F1E305FF9000C8DAD /* UIImage+Extend.m in Sources */,
 				8569B69C1E2CB1FF00F4972B /* ViewController.m in Sources */,
 				8504BD1E1E305FF9000C8DAD /* UIImage+Cut.m in Sources */,
@@ -896,14 +799,13 @@
 				8504BD231E305FF9000C8DAD /* UIView+Extend.m in Sources */,
 				4795E753249C66F000642DAB /* TDStretch.cpp in Sources */,
 				8504BD241E305FF9000C8DAD /* UIWindow+TopViewController.m in Sources */,
+				47A1449024AC884A00010C2E /* XYWAudioFileSoundChanger.m in Sources */,
 				8504BC411E3058C1000C8DAD /* SVProgressHUD.m in Sources */,
 				8504BD281E3064D2000C8DAD /* DetailViewController.m in Sources */,
 				8504BC5C1E305D2A000C8DAD /* XYWAlert.m in Sources */,
 				8504BD201E305FF9000C8DAD /* UIImage+FixOrientation.m in Sources */,
 				4795E754249C66F000642DAB /* RateTransposer.cpp in Sources */,
-				4795E769249C66F000642DAB /* amrFileCodec.mm in Sources */,
 				8504BC3F1E3058C1000C8DAD /* SVIndefiniteAnimatedView.m in Sources */,
-				4795E765249C66F000642DAB /* AudioEncodeOperation.m in Sources */,
 				8504BCDB1E305FC4000C8DAD /* ZYPlayerView.m in Sources */,
 				8504BD121E305FF9000C8DAD /* CALayer+Anim.m in Sources */,
 				8504BD221E305FF9000C8DAD /* UIImage+Water.m in Sources */,

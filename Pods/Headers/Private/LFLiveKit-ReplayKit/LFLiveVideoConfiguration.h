@@ -1,0 +1,1 @@
+../../../LFLiveKit-ReplayKit/LFLiveKit-ReplayKit/configuration/LFLiveVideoConfiguration.h

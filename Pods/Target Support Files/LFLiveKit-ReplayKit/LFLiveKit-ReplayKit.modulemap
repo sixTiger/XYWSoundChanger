@@ -1,0 +1,6 @@
+module LFLiveKit_ReplayKit {
+  umbrella header "LFLiveKit-ReplayKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

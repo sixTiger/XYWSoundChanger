@@ -66,7 +66,6 @@
 		8504BD281E3064D2000C8DAD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8504BD271E3064D2000C8DAD /* DetailViewController.m */; };
 		8504BD2A1E3088DB000C8DAD /* 0.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8504BD291E3088DB000C8DAD /* 0.mp4 */; };
 		8504BD2C1E30A6E1000C8DAD /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8504BD2B1E30A6E1000C8DAD /* 1.mp4 */; };
-		8514FA2B1E2F4FD4001A4751 /* XYWSandBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8514FA2A1E2F4FD4001A4751 /* XYWSandBox.m */; };
 		8566E60D1E2DBA540048B5A8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8566E60C1E2DBA540048B5A8 /* QuartzCore.framework */; };
 		8569B6961E2CB1FF00F4972B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8569B6951E2CB1FF00F4972B /* main.m */; };
 		8569B6991E2CB1FF00F4972B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8569B6981E2CB1FF00F4972B /* AppDelegate.m */; };
@@ -197,8 +196,6 @@
 		8504BD271E3064D2000C8DAD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		8504BD291E3088DB000C8DAD /* 0.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 0.mp4; sourceTree = "<group>"; };
 		8504BD2B1E30A6E1000C8DAD /* 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.mp4; sourceTree = "<group>"; };
-		8514FA291E2F4FD4001A4751 /* XYWSandBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYWSandBox.h; sourceTree = "<group>"; };
-		8514FA2A1E2F4FD4001A4751 /* XYWSandBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYWSandBox.m; sourceTree = "<group>"; };
 		8566E60C1E2DBA540048B5A8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8569B6911E2CB1FF00F4972B /* XYWSoundChanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XYWSoundChanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8569B6951E2CB1FF00F4972B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -549,15 +546,6 @@
 			path = "未命名文件夹";
 			sourceTree = "<group>";
 		};
-		8514FA281E2F4FC5001A4751 /* XYWSandBoxManager */ = {
-			isa = PBXGroup;
-			children = (
-				8514FA291E2F4FD4001A4751 /* XYWSandBox.h */,
-				8514FA2A1E2F4FD4001A4751 /* XYWSandBox.m */,
-			);
-			path = XYWSandBoxManager;
-			sourceTree = "<group>";
-		};
 		8569B6881E2CB1FF00F4972B = {
 			isa = PBXGroup;
 			children = (
@@ -580,7 +568,6 @@
 			isa = PBXGroup;
 			children = (
 				4795E70F249C66F000642DAB /* XYWSoundChanger */,
-				8514FA281E2F4FC5001A4751 /* XYWSandBoxManager */,
 				8569B6971E2CB1FF00F4972B /* AppDelegate.h */,
 				8569B6981E2CB1FF00F4972B /* AppDelegate.m */,
 				8569B69A1E2CB1FF00F4972B /* ViewController.h */,
@@ -811,7 +798,6 @@
 				8504BD221E305FF9000C8DAD /* UIImage+Water.m in Sources */,
 				8504BD1A1E305FF9000C8DAD /* UIColor+Extend.m in Sources */,
 				8504BD251E305FF9000C8DAD /* XCategory.m in Sources */,
-				8514FA2B1E2F4FD4001A4751 /* XYWSandBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

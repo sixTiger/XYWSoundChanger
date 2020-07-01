@@ -10,7 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AudioConvert.h"
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "XYWSandBox.h"
 #import "XYWVideoFileSoundChanger.h"
 #import "ZYPlayer.h"
 #import "CoreSVP.h"
@@ -41,7 +40,6 @@
     self.tempoChangeNum = 10;
     self.pitchSemiTonesNum= 0;
     self.rateChangeNum = 0;
-    NSLog(@"%@",[XYWSandBox getTmpDirectory]) ;
     
 }
 - (IBAction)tempo:(UISlider *)sender {

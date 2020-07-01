@@ -16,11 +16,12 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/xueyongwei/XYWSoundChanger.git", :tag => s.version}
 
-  s.source_files  = "Class/**/*.{h,m}"
+  s.source_files  = "Class/**/*"
 
   s.requires_arc = true
 
   s.frameworks = "Foundation","UIKit"
   
+  s.libraries = 'c++.1'
 
 end

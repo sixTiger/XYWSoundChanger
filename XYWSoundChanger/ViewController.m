@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AudioConvert.h"
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "XYWVideoFileSoundChanger.h"
+#import "XYWSoundChanger.h"
 #import "ZYPlayer.h"
 #import "CoreSVP.h"
 

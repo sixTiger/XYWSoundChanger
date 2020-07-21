@@ -134,6 +134,7 @@
 		47A1453624AC93BA00010C2E /* XYWAudioFileSoundChanger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYWAudioFileSoundChanger.m; sourceTree = "<group>"; };
 		47A1453724AC93BA00010C2E /* XYWVideoFileSoundChanger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYWVideoFileSoundChanger.m; sourceTree = "<group>"; };
 		47A1453824AC93BA00010C2E /* XYWAudioBufferSoundChanger.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XYWAudioBufferSoundChanger.mm; sourceTree = "<group>"; };
+		47A145C124AD776600010C2E /* XYWSoundChanger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYWSoundChanger.h; sourceTree = "<group>"; };
 		8504BC311E3058C1000C8DAD /* CoreSVP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreSVP.h; sourceTree = "<group>"; };
 		8504BC321E3058C1000C8DAD /* CoreSVP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreSVP.m; sourceTree = "<group>"; };
 		8504BC341E3058C1000C8DAD /* SVP.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVP.bundle; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 				47A1450624AC93BA00010C2E /* SoundTouch */,
 				47A1451E24AC93BA00010C2E /* AudioDecode */,
 				47A1452E24AC93BA00010C2E /* AudioSoundTouch */,
+				47A145C124AD776600010C2E /* XYWSoundChanger.h */,
 				47A1452B24AC93BA00010C2E /* XYWAudioBufferSoundChanger.h */,
 				47A1453824AC93BA00010C2E /* XYWAudioBufferSoundChanger.mm */,
 				47A1452C24AC93BA00010C2E /* XYWVideoFileSoundChanger.h */,

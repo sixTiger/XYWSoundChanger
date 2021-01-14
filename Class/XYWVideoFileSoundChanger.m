@@ -10,7 +10,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "AudioConvert.h"
-@interface XYWVideoFileSoundChanger()<AudioConvertDelegate>
+#import "XYWAudioFileSoundChanger.h"
+
+@interface XYWVideoFileSoundChanger()
 @property (nonatomic,copy) void(^success)(NSString *videoPath);
 @property (nonatomic,copy) void(^failure)(NSError *error);
 @property (nonatomic,assign)int tempo;
@@ -112,16 +114,26 @@
  */
 -(void)changeSoundAtPath:(NSString *)filePath
 {
-    AudioConvertConfig dconfig;
-    dconfig.sourceAuioPath = [filePath UTF8String];
-    dconfig.outputFormat = AudioConvertOutputFormat_WAV;
-    dconfig.outputChannelsPerFrame = 1;
-    dconfig.outputSampleRate = 8000;
-    dconfig.soundTouchPitch = self.pitch;
-    dconfig.soundTouchRate = self.rate;
-    dconfig.soundTouchTempoChange = self.tempo;
     CNLog(@"设置完毕，开始变声处理..");
-    [[AudioConvert shareAudioConvert] audioConvertBegin:dconfig withCallBackDelegate:self];
+    [XYWAudioFileSoundChanger.shared changeAudio:filePath withTempo:self.tempo andPitch:self.pitch andRate:self.rate sucess:^(NSString * _Nonnull audioPath) {
+        CNLog(@"编码成功");
+        [self createNewVideoWithSound: audioPath];
+    } failure:^(NSError * _Nonnull error) {
+        CNLog(@"编码失败");
+        NSError *err = [NSError errorWithDomain:@"audioConvertEncodeFaild" code:500 userInfo:@{@"errMsg":@"audioConvertEncodeFaild"}];
+        self.failure(err);
+    }];
+    
+//    AudioConvertConfig dconfig;
+//    dconfig.sourceAuioPath = [filePath UTF8String];
+//    dconfig.outputFormat = AudioConvertOutputFormat_WAV;
+//    dconfig.outputChannelsPerFrame = 1;
+//    dconfig.outputSampleRate = 8000;
+//    dconfig.soundTouchPitch = self.pitch;
+//    dconfig.soundTouchRate = self.rate;
+//    dconfig.soundTouchTempoChange = self.tempo;
+//    CNLog(@"设置完毕，开始变声处理..");
+//    [[AudioConvert shareAudioConvert] audioConvertBegin:dconfig withCallBackDelegate:self];
 }
 
 #pragma mark --将原视频和变音后的文件合并成新的视频

@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param pitch 音调  范围 -12 ~ 12 （-12男，12女）
  @param rate 声音速率 范围 -50 ~ 100
  */
--(void)changeAudio:(NSString *)audioPath withTempo:(int)tempo andPitch:(int)pitch andRate:(int)rate sucess:(void (^)(NSString *videoPath))success failure:(void (^)(NSError *error))failure;
+-(void)changeAudio:(NSString *)audioPath withTempo:(int)tempo andPitch:(int)pitch andRate:(int)rate sucess:(void (^)(NSString *audioPath))success failure:(void (^)(NSError *error))failure;
 
 @end
 
